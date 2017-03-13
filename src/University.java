@@ -203,9 +203,9 @@ public class University {
                     break;
             }
         }
-        hm.getOrDefault("Stationary",a);
-        hm.getOrDefault("Nonstationary",b);
-        hm.getOrDefault("Postgraduate",c);
+        hm.put(StudentType.Stationary,a);
+        hm.put(StudentType.Nonstationary,b);
+        hm.put(StudentType.Postgraduate,c);
         return hm;
     }
     public void sorting()

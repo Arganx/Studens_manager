@@ -16,10 +16,11 @@ public class Main {
         AGH.assigneStudent(s,c);
         AGH.assigneStudent(s,b);
         AGH.assigneStudent(j,c);
+        System.out.println(AGH.numbers().get(StudentType.Stationary));
         //AGH.printStudents();
         //AGH.deleteStudents(b);
         //AGH.printStudents();
-        System.out.println(AGH.bestOne().getName());
+        //System.out.println(AGH.bestOne().getName());
         //AGH.sorting();
         //System.out.println(AGH.together(a,c));
         //AGH.printfromqueue(AGH.lazyStudents());
