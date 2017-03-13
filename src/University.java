@@ -172,33 +172,15 @@ public class University {
         }
         return s;
     }
-    public Student bestOne() //Zmienic z Collections.max
+    public Student bestOne()
     {
-        Iterator<Student> i = students.iterator();
-        Student tmp,Best=students.get(0);
-        Activity tmp2;
-        int counter;
-        int max =0;
-        while(i.hasNext())
-        {
-            tmp = i.next();
-            counter=0;
-            Iterator<Activity> a = activities.iterator();
-            while(a.hasNext())
-            {
-                tmp2=a.next();
-                if(belongs(tmp,tmp2))
-                {
-                    counter++;
-                }
-                if(counter>max)
-                {
-                    max=counter;
-                    Best = tmp;
-                }
+        Comparator<Student> comparator = new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                return o1.getActivities2().size()-o2.getActivities2().size();
             }
-        }
-        return Best;
+        };
+        return Collections.max(students,comparator);
     }
     public HashMap<StudentType,Integer> numbers()
     {
@@ -220,10 +202,10 @@ public class University {
                     c++;
                     break;
             }
-            hm.getOrDefault("Stationary",a);
-            hm.getOrDefault("Nonstationary",b);
-            hm.getOrDefault("Postgraduate",c);
         }
+        hm.getOrDefault("Stationary",a);
+        hm.getOrDefault("Nonstationary",b);
+        hm.getOrDefault("Postgraduate",c);
         return hm;
     }
     public void sorting()
